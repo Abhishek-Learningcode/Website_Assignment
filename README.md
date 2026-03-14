@@ -18,23 +18,24 @@ A fully responsive, interactive restaurant and food-delivery web application bui
 * **Vanilla JavaScript (ES6+):** DOM manipulation, event listeners, array methods (`find`, `findIndex`, `splice`), and JSON parsing.
 * **Web Storage API:** `localStorage` for client-side data persistence.
 
-## Screenshorts
-- **Home**
-<P align="center">
-<img src="home.png" width="50%" height="40px">
+## 📸 Screenshots
+
+**Home Page**
+<p align="center">
+  <img src="home.png" width="80%" alt="Home Page Screenshot">
 </p>
 
-- **Product**
-<P align="center">
-<img src="product.png" width="50%" height="40px">
+**Product Menu**
+<p align="center">
+  <img src="product.png" width="80%" alt="Menu Page Screenshot">
 </p>
 
-- **FoodSuggestion**
-<P align="center">
-<img src="foodsuggestion.png" width="50%" height="40px">
+**Food Suggestion Form**
+<p align="center">
+  <img src="foodsuggestion.png" width="80%" alt="Food Suggestion Screenshot">
 </p>
 
-- **About**
-<P align="center">
-<img src="about.png" width="50%" height="40px">
+**About Us**
+<p align="center">
+  <img src="about.png" width="80%" alt="About Us Screenshot">
 </p>
