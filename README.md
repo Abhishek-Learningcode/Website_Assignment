@@ -21,20 +21,20 @@ A fully responsive, interactive restaurant and food-delivery web application bui
 ## Screenshorts
 - **Home**
 <P align="center">
-<img src="home.png" width="100px" height="40px">
+<img src="home.png" width="50%" height="40px">
 </p>
 
 - **Product**
 <P align="center">
-<img src="product.png" width="100px" height="40px">
+<img src="product.png" width="50%" height="40px">
 </p>
 
 - **FoodSuggestion**
 <P align="center">
-<img src="foodsuggestion.png" width="100px" height="40px">
+<img src="foodsuggestion.png" width="50%" height="40px">
 </p>
 
 - **About**
 <P align="center">
-<img src="about.png" width="100px" height="40px">
+<img src="about.png" width="50%" height="40px">
 </p>
