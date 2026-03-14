@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Annapurna Restaurant - About Us</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+        
+        <style>
+            #floating-cart {
+                position: fixed;
+                bottom: 30px;
+                right: 30px;
+                z-index: 1000;
+            }
+
+            .cart-btn {
+                width: 65px;
+                height: 65px;
+                border-radius: 50%;
+                background-color: #FF5733;
+                color: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 28px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+                cursor: pointer;
+                position: relative;
+                transition: transform 0.2s;
+            }
+            
+            .cart-btn:hover {
+                transform: scale(1.1);
+            }
+
+            .cart-badge {
+                position: absolute;
+                top: -5px;
+                right: -5px;
+                background-color: #dc3545;
+                color: white;
+                border-radius: 50%;
+                padding: 4px 10px;
+                font-size: 14px;
+                font-weight: bold;
+                border: 2px solid white;
+            }
+
+            @keyframes shake {
+                0% { transform: translateX(0); }
+                25% { transform: translateX(-5px) rotate(-5deg); }
+                50% { transform: translateX(5px) rotate(5deg); }
+                75% { transform: translateX(-5px) rotate(-5deg); }
+                100% { transform: translateX(0); }
+            }
+
+            .shake-active {
+                animation: shake 0.3s ease-in-out;
+            }
+            
+            /* Custom styling for the chef cards */
+            .chef-card img {
+                height: 300px;
+                object-fit: cover;
+                border-radius: 10px 10px 0 0;
+            }
+        </style>
+    </head>
+
+    <body class="bg-light d-flex flex-column min-vh-100">
+        <header>
+            <nav class="navbar navbar-expand-sm navbar-light bg-black navbar-dark py-2">
+                <div class="container">
+                    <a class="navbar-brand d-flex align-items-center" href="index.html" style="text-decoration: none;">
+                        <img src="navlogo.png" class="img-fluid rounded-circle me-3" style="height: 80px; width: 80px;" alt="Annapurna Logo" />
+                        <div class="d-flex flex-column justify-content-center">
+                            <span class="fw-bold" style="color: #FF5733; font-size: 1.8rem; line-height: 1;">ANNAPURNA</span>
+                            <span class="text-white fw-semibold" style="letter-spacing: 3px; font-size: 0.9rem;">RESTAURANT</span>
+                        </div>
+                    </a>
+                    
+                    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    
+                    <div class="collapse navbar-collapse" id="collapsibleNavId">
+                        <ul class="navbar-nav me-auto mt-2 mt-lg-0 gap-4 ms-4">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="product.html">Product</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="foodsuggestion.html">FoodSuggestion</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="about.html" aria-current="page">About <span class="visually-hidden">(current)</span></a>
+                            </li>
+                        </ul>
+                        <a class="btn btn-primary" href="register.html" role="button">Register</a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main class="flex-grow-1">
+            
+            <div class="bg-dark text-white text-center py-5">
+                <div class="container">
+                    <h1 class="display-4 fw-bold" style="color: #FF5733;">Our Story</h1>
+                    <p class="lead">Bringing the authentic taste of tradition to your plate.</p>
+                </div>
+            </div>
+
+            <div class="container py-5">
+                
+                <div class="text-center mb-5">
+                    <h2 class="display-5 fw-bold" style="color: #FF5733;">Meet Our Culinary Experts</h2>
+                    <p class="lead text-muted">The masters behind the magic of Annapurna.</p>
+                </div>
+
+                <div class="row g-4 mb-5 pb-5 border-bottom justify-content-center">
+                    
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 border-0 shadow-sm chef-card">
+                            <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Chef Rajesh">
+                            <div class="card-body text-center">
+                                <h4 class="fw-bold mb-1">Chef Rajesh Kumar</h4>
+                                <h6 class="text-warning mb-3">Executive Head Chef</h6>
+                                <p class="card-text text-muted small">With over 20 years of experience across luxury hotels in India, Chef Rajesh is the mastermind behind our signature North Indian curries. His specialty is the legendary Dal Makhani, slow-cooked overnight to perfection.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 border-0 shadow-sm chef-card">
+                            <img src="https://media.istockphoto.com/id/2045389960/photo/chef-decorating-a-plate.jpg?s=612x612&w=0&k=20&c=0DLu8FOjzlz1yPMsLtwKOFxaJ7ZgfA0i7TWKbfh-BGc=" class="card-img-top" alt="Chef Ananya">
+                            <div class="card-body text-center">
+                                <h4 class="fw-bold mb-1">Chef Ananya Singh</h4>
+                                <h6 class="text-warning mb-3">Tandoor Specialist</h6>
+                                <p class="card-text text-muted small">Chef Ananya trained in the heart of Punjab. She commands the clay ovens at Annapurna, ensuring every Naan is perfectly crisp on the outside and soft on the inside, and every Tikka is smoky and tender.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 border-0 shadow-sm chef-card">
+                            <img src="https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Chef Vikram">
+                            <div class="card-body text-center">
+                                <h4 class="fw-bold mb-1">Chef Vikram Das</h4>
+                                <h6 class="text-warning mb-3">Biryani Master</h6>
+                                <p class="card-text text-muted small">Hailing from Hyderabad, Chef Vikram treats Biryani not just as food, but as art. With 15 years of dedication to the 'Dum' cooking method, he carefully balances saffron, spices, and premium basmati rice.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 border-0 shadow-sm chef-card">
+                            <img src="https://images.unsplash.com/photo-1607631568010-a87245c0daf8?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Chef Meera">
+                            <div class="card-body text-center">
+                                <h4 class="fw-bold mb-1">Chef Meera Patel</h4>
+                                <h6 class="text-warning mb-3">Street Food & Chaat</h6>
+                                <p class="card-text text-muted small">Bringing the vibrant flavors of Mumbai street food to a fine-dining setting. Chef Meera spent a decade perfecting the exact tangy, spicy, and sweet balance required for our famous Samosas and Chaats.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 border-0 shadow-sm chef-card">
+                            <img src="https://images.unsplash.com/photo-1581349485608-9469926a8e5e?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Chef Rohan">
+                            <div class="card-body text-center">
+                                <h4 class="fw-bold mb-1">Chef Rohan Iyer</h4>
+                                <h6 class="text-warning mb-3">Pastry & Dessert Chef</h6>
+                                <p class="card-text text-muted small">No meal is complete without dessert. Chef Rohan blends traditional Indian sweet-making techniques with modern presentation, crafting the softest Gulab Jamuns and the creamiest Rasmalai you will ever taste.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row mb-5 pb-5 border-bottom text-center">
+                    <div class="col-12 mb-4">
+                        <h2 class="fw-bold">Chef in Action</h2>
+                        <p class="text-muted">Take a behind-the-scenes look at how we prepare our famous dishes.</p>
+                    </div>
+                    <div class="col-lg-8 mx-auto">
+                        <div class="ratio ratio-16x9 shadow-lg rounded-4 overflow-hidden">
+                            <iframe src="https://www.youtube.com/embed/kRCH8kD1GD0?si=dtYm6HTVNuwCFw7v" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row pt-3">
+                    <div class="col-md-5 mb-4">
+                        <h2 class="fw-bold mb-4">Visit Us</h2>
+                        
+                        <div class="mb-4">
+                            <h5 class="fw-bold text-dark">📍 Address</h5>
+                            <p class="text-muted mb-0">123 Culinary Avenue,</p>
+                            <p class="text-muted">Food District, Mumbai 400001</p>
+                        </div>
+
+                        <div class="mb-4">
+                            <h5 class="fw-bold text-dark">🕒 Opening Hours</h5>
+                            <p class="text-muted mb-0"><strong>Mon - Fri:</strong> 11:00 AM - 10:30 PM</p>
+                            <p class="text-muted"><strong>Sat - Sun:</strong> 10:00 AM - 11:30 PM</p>
+                        </div>
+
+                        <div class="mb-4">
+                            <h5 class="fw-bold text-dark">📞 Contact</h5>
+                            <p class="text-muted mb-0">+91 98765 43210</p>
+                            <p class="text-muted">hello@annapurnarestaurant.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-7">
+                        <div class="ratio ratio-4x3 shadow-sm rounded-4 overflow-hidden">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.180106853404!2d72.8539724739555!3d19.23098084709131!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b02a94fea373%3A0xb6acbbcdd3cf39ce!2sSDAC%20Infotech!5e0!3m2!1sen!2sin!4v1773474664027!5m2!1sen!2sin" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <footer class="text-center bg-black text-light py-4 mt-auto">
+            © 2026 Annapurna Restaurant. All Rights Reserved. Built by Abhishek.
+        </footer>
+
+        <div id="floating-cart">
+            <div class="cart-btn" id="cart-icon">
+                🛒
+                <span class="cart-badge" id="cart-count">0</span>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+        
+        <script>
+            let cart = JSON.parse(localStorage.getItem('annapurnaCart')) || [];
+            
+            function updateCartBadge() {
+                let totalItems = 0;
+                cart.forEach(item => totalItems += item.qty);
+                document.getElementById('cart-count').innerText = totalItems;
+            }
+
+            const floatingCart = document.getElementById('floating-cart');
+            floatingCart.addEventListener('click', function() {
+                window.location.href = 'addtocard.html';
+            });
+
+            // Update badge immediately on load
+            updateCartBadge();
+        </script>
+    </body>
+</html>

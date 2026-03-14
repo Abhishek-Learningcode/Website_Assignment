@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Annapurna Restaurant - Register</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+        
+        <style>
+            #floating-cart {
+                position: fixed;
+                bottom: 30px;
+                right: 30px;
+                z-index: 1000;
+            }
+
+            .cart-btn {
+                width: 65px;
+                height: 65px;
+                border-radius: 50%;
+                background-color: #FF5733;
+                color: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 28px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+                cursor: pointer;
+                position: relative;
+                transition: transform 0.2s;
+            }
+            
+            .cart-btn:hover {
+                transform: scale(1.1);
+            }
+
+            .cart-badge {
+                position: absolute;
+                top: -5px;
+                right: -5px;
+                background-color: #dc3545;
+                color: white;
+                border-radius: 50%;
+                padding: 4px 10px;
+                font-size: 14px;
+                font-weight: bold;
+                border: 2px solid white;
+            }
+
+            @keyframes shake {
+                0% { transform: translateX(0); }
+                25% { transform: translateX(-5px) rotate(-5deg); }
+                50% { transform: translateX(5px) rotate(5deg); }
+                75% { transform: translateX(-5px) rotate(-5deg); }
+                100% { transform: translateX(0); }
+            }
+
+            .shake-active {
+                animation: shake 0.3s ease-in-out;
+            }
+        </style>
+    </head>
+
+    <body class="bg-light d-flex flex-column min-vh-100">
+        
+        <header>
+            <nav class="navbar navbar-expand-sm navbar-light bg-black navbar-dark py-2">
+                <div class="container">
+                    <a class="navbar-brand d-flex align-items-center" href="index.html" style="text-decoration: none;">
+                        <img src="navlogo.png" class="img-fluid rounded-circle me-3" style="height: 80px; width: 80px;" alt="Annapurna Logo" />
+                        <div class="d-flex flex-column justify-content-center">
+                            <span class="fw-bold" style="color: #FF5733; font-size: 1.8rem; line-height: 1;">ANNAPURNA</span>
+                            <span class="text-white fw-semibold" style="letter-spacing: 3px; font-size: 0.9rem;">RESTAURANT</span>
+                        </div>
+                    </a>
+                    
+                    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    
+                    <div class="collapse navbar-collapse" id="collapsibleNavId">
+                        <ul class="navbar-nav me-auto mt-2 mt-lg-0 gap-4 ms-4">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="product.html">Product</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="foodsuggestion.html">FoodSuggestion</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html">About</a>
+                            </li>
+                        </ul>
+                        <a class="btn btn-secondary disabled" href="#" role="button">Register</a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main class="container py-5 flex-grow-1 d-flex align-items-center justify-content-center">
+            
+            <div class="card border-0 shadow-lg overflow-hidden rounded-4 w-100" style="max-width: 600px;">
+                <div class="row g-0">
+                    
+                    <div class="col-12 p-4 p-lg-5">
+                        <div class="text-center mb-4">
+                            <h2 class="fw-bold" style="color: #FF5733;">Create an Account</h2>
+                            <p class="text-muted">Join the Annapurna family for faster checkout and exclusive offers!</p>
+                        </div>
+                        
+                        <form id="registerForm">
+                            <div class="mb-3">
+                                <label for="fullName" class="form-label fw-semibold">Full Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control form-control-lg bg-light" id="fullName" placeholder="Rahul Sharma" required>
+                            </div>
+
+                            <div class="row g-3 mb-3">
+                                <div class="col-sm-6">
+                                    <label for="email" class="form-label fw-semibold">Email Address <span class="text-danger">*</span></label>
+                                    <input type="email" class="form-control form-control-lg bg-light" id="email" placeholder="name@example.com" required>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="phone" class="form-label fw-semibold">Phone Number <span class="text-danger">*</span></label>
+                                    <input type="tel" class="form-control form-control-lg bg-light" id="phone" placeholder="+91 98765 43210" required>
+                                </div>
+                            </div>
+
+                            <div class="row g-3 mb-4">
+                                <div class="col-sm-6">
+                                    <label for="password" class="form-label fw-semibold">Password <span class="text-danger">*</span></label>
+                                    <input type="password" class="form-control form-control-lg bg-light" id="password" placeholder="••••••••" required>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="confirmPassword" class="form-label fw-semibold">Confirm Password <span class="text-danger">*</span></label>
+                                    <input type="password" class="form-control form-control-lg bg-light" id="confirmPassword" placeholder="••••••••" required>
+                                </div>
+                            </div>
+
+                            <div class="form-check mb-4">
+                                <input class="form-check-input" type="checkbox" value="" id="termsCheck" required>
+                                <label class="form-check-label text-muted small" for="termsCheck">
+                                    I agree to the <a href="#" class="text-danger text-decoration-none">Terms & Conditions</a> and <a href="#" class="text-danger text-decoration-none">Privacy Policy</a>.
+                                </label>
+                            </div>
+
+                            <button type="submit" class="btn btn-danger btn-lg w-100 fw-bold shadow-sm">Create Account</button>
+                            
+                            <p class="text-center text-muted mt-4 mb-0">
+                                Already have an account? <a href="login.html" class="text-danger text-decoration-none fw-bold">Log In here</a>
+                            </p>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+        </main>
+
+        <footer class="text-center bg-black text-light py-4 mt-auto">
+            © 2026 Annapurna Restaurant. All Rights Reserved. Built by Abhishek.
+        </footer>
+
+        <div id="floating-cart">
+            <div class="cart-btn" id="cart-icon">
+                🛒
+                <span class="cart-badge" id="cart-count">0</span> 
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+        
+        <script>
+            // 1. REGISTRATION FORM LOGIC
+            const registerForm = document.getElementById('registerForm');
+            
+            registerForm.addEventListener('submit', function(event) {
+                // Stop the page from naturally refreshing
+                event.preventDefault();
+                
+                // Get the user's name from the input box
+                const userName = document.getElementById('fullName').value;
+                const password = document.getElementById('password').value;
+                const confirmPassword = document.getElementById('confirmPassword').value;
+
+                // Make sure passwords match
+                if (password !== confirmPassword) {
+                    alert("Error: Your passwords do not match. Please try again.");
+                    return; // Stop the code here
+                }
+                
+                // Show a personalized welcome popup
+                alert(`Registration successful! Welcome to the Annapurna family, ${userName}!`);
+                
+                // Automatically redirect them to the home page
+                window.location.href = 'index.html';
+            });
+
+
+            // 2. KEEP THE CART BADGE UPDATED
+            let cart = JSON.parse(localStorage.getItem('annapurnaCart')) || [];
+            
+            function updateCartBadge() {
+                let totalItems = 0;
+                cart.forEach(item => totalItems += item.qty);
+                document.getElementById('cart-count').innerText = totalItems;
+            }
+
+            // Redirect user to cart page if they click the cart icon
+            const floatingCart = document.getElementById('floating-cart');
+            floatingCart.addEventListener('click', function() {
+                window.location.href = 'addtocard.html';
+            });
+
+            // Initialize badge on load
+            updateCartBadge();
+        </script>
+    </body>
+</html>
