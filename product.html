@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Annapurna Restaurant - Menu</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+        
+        <style>
+            #floating-cart {
+                position: fixed;
+                bottom: 30px;
+                right: 30px;
+                z-index: 1000;
+            }
+
+            .cart-btn {
+                width: 65px;
+                height: 65px;
+                border-radius: 50%;
+                background-color: #FF5733;
+                color: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 28px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+                cursor: pointer;
+                position: relative;
+                transition: transform 0.2s;
+            }
+            
+            .cart-btn:hover {
+                transform: scale(1.1);
+            }
+
+            .cart-badge {
+                position: absolute;
+                top: -5px;
+                right: -5px;
+                background-color: #dc3545;
+                color: white;
+                border-radius: 50%;
+                padding: 4px 10px;
+                font-size: 14px;
+                font-weight: bold;
+                border: 2px solid white;
+            }
+
+            @keyframes shake {
+                0% { transform: translateX(0); }
+                25% { transform: translateX(-5px) rotate(-5deg); }
+                50% { transform: translateX(5px) rotate(5deg); }
+                75% { transform: translateX(-5px) rotate(-5deg); }
+                100% { transform: translateX(0); }
+            }
+
+            .shake-active {
+                animation: shake 0.3s ease-in-out;
+            }
+        </style>
+    </head>
+
+    <body class="bg-light">
+        <header>
+            <nav class="navbar navbar-expand-sm navbar-light bg-black navbar-dark py-2">
+                <div class="container">
+                    <a class="navbar-brand d-flex align-items-center" href="index.html" style="text-decoration: none;">
+                        <img src="navlogo.png" class="img-fluid rounded-circle me-3" style="height: 80px; width: 80px;" alt="Annapurna Logo" />
+                        <div class="d-flex flex-column justify-content-center">
+                            <span class="fw-bold" style="color: #FF5733; font-size: 1.8rem; line-height: 1;">ANNAPURNA</span>
+                            <span class="text-white fw-semibold" style="letter-spacing: 3px; font-size: 0.9rem;">RESTAURANT</span>
+                        </div>
+                    </a>
+                    
+                    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    
+                    <div class="collapse navbar-collapse" id="collapsibleNavId">
+                        <ul class="navbar-nav me-auto mt-2 mt-lg-0 gap-4 ms-4">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="product.html">Product <span class="visually-hidden">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="foodsuggestion.html">FoodSuggestion</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html">About</a>
+                            </li>
+                        </ul>
+                        <a class="btn btn-primary" href="register.html" role="button">Register</a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <section class="py-5 bg-light">
+                <div class="container py-5">
+                    <h2 class="text-center mb-5 fw-bold" style="color: #FF5733;">Our Full Menu</h2>
+                    <div class="row g-4" id="menu-container"></div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="text-center bg-black text-light py-4 mt-2">
+            &copy; 2026 Annapurna Restaurant. All Rights Reserved. Built by Abhishek.
+        </footer>
+
+        <div id="floating-cart">
+            <div class="cart-btn" id="cart-icon">
+                🛒
+                <span class="cart-badge" id="cart-count">0</span>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
+        <script>
+            // 1. Array of Menu Items (Notice prices are numbers now, not strings)
+            const menuItems = [
+                // Starters
+                { name: "Punjabi Samosa", price: 40, category: "Starter", desc: "Crispy pastry filled with spiced potatoes.", image: "https://media.istockphoto.com/id/504682427/photo/one-bite-samosa.jpg?s=612x612&w=0&k=20&c=iw-_6fXJYYnOiH8-LZ_N9xIBx9qlIIqhVQj2de_UwBY=" },
+                { name: "Onion Bhaji", price: 80, category: "Starter", desc: "Deep-fried crispy onion fritters.", image: "https://images.unsplash.com/photo-1765360024331-25b63e85272e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8U3RhcnRlciUyME9uaW9uJTIwQmhhaml8ZW58MHx8MHx8fDA%3D" },
+                { name: "Paneer Tikka", price: 180, category: "Starter", desc: "Cubes of paneer marinated in yogurt and spices.", image: "https://media.istockphoto.com/id/2206635175/photo/paneer-tikka-skewers-with-onion-lemon-and-green-chutney-directly-from-above-photo.jpg?s=612x612&w=0&k=20&c=dTAMB8X2FxwL6h3nWX2274u3VHmHkR79quAsqKVrr2c=" },
+                { name: "Aloo Tikki Chaat", price: 120, category: "Starter", desc: "Potato patties topped with chutneys and yogurt.", image: "https://media.istockphoto.com/id/1264056882/photo/indian-aloo-tikki-or-potato-cutlet-is-made-out-of-boiled-potatoes-peas-and-various-curry.jpg?s=612x612&w=0&k=20&c=yr981RXBJGF1UIhKkuzct3UyiQ4uqAvnY_KRQUk1W0k=" },
+                { name: "Hara Bhara Kebab", price: 150, category: "Starter", desc: "Healthy patties made with spinach and green peas.", image: "https://media.istockphoto.com/id/1024552076/photo/hara-bhara-kabab-or-kebab-is-indian-vegetarian-snack-recipe-served-with-green-mint-chutney.jpg?s=612x612&w=0&k=20&c=Y1AYwcOX_03RQ_zv6RvCUovIV3zsiocWrSun_8LOUNA=" },
+                
+                // Mains
+                { name: "Paneer Butter Masala", price: 250, category: "Main Course", desc: "Rich and creamy tomato gravy with paneer.", image: "https://media.istockphoto.com/id/1024584900/photo/paneer-butter-masala-also-known-as-panir-makhani-or-makhanwala-served-in-a-ceramic-or-wooden.jpg?s=612x612&w=0&k=20&c=ppt8jPb3KOA-hbYpOcZkqZiVKFttFCaWZw4L1HC-pm0=" },
+                { name: "Dal Makhani", price: 190, category: "Main Course", desc: "Black lentils slow-cooked overnight with butter.", image: "https://media.istockphoto.com/id/1338247160/photo/close-up-image-of-kadhai-style-serving-bowl-homemade-dal-makhani-curry-recipe-soaked-black.jpg?s=612x612&w=0&k=20&c=06LHiv9SQKg5LV2OCryEARIZ78zB6dwwYPYqt00F6-s=" },
+                { name: "Chana Masala", price: 160, category: "Main Course", desc: "Spicy and tangy chickpea curry.", image: "https://media.istockphoto.com/id/1387762526/photo/chicken-chilly-indian-street-food-indian-asian-or-chinese-recipe-food-served-hot-in-black.jpg?s=612x612&w=0&k=20&c=A92Ua2_01nWdJx-PZ2g46V7Tp0fX6jrh6uDX952TWX4=" },
+                { name: "Malai Kofta", price: 220, category: "Main Course", desc: "Potato and paneer dumplings in a rich sauce.", image: "https://media.istockphoto.com/id/510015500/photo/indian-food-specialties-indian-dish-malai-kofta-or-veg-kofta.jpg?s=612x612&w=0&k=20&c=6sB6EeEWbccw26nQm2_ndeWWk-u-_se9QQ2g4CdWy2E=" },
+                { name: "Baingan Bharta", price: 170, category: "Main Course", desc: "Smoky mashed eggplant cooked with spices.", image: "https://media.istockphoto.com/id/1607315227/photo/begun-bhorta-or-mashed-eggplant-served-in-dish-isolated-on-background-top-view-of-bangladesh.jpg?s=612x612&w=0&k=20&c=3OrgUQDuaO13aPMy1rem9hcCTxcsidSQMFReBtTwX7c=" },
+                { name: "Bhindi Masala", price: 150, category: "Main Course", desc: "Stir-fried okra with onions and tomatoes.", image: "https://media.istockphoto.com/id/1319478463/photo/bharwa-masala-bhindi-or-stuffed-okra.jpg?s=612x612&w=0&k=20&c=HKYFfS0y1HFDGiFxKKu3PysrENqCq3B3lVVpuhkwtFc=" },
+                { name: "Mix Veg Curry", price: 180, category: "Main Course", desc: "Assorted seasonal vegetables in a spicy gravy.", image: "https://media.istockphoto.com/id/1263764511/photo/indian-mix-veg-or-mixed-vegetable-recipe-served-in-a-bowl-with-chapati.jpg?s=612x612&w=0&k=20&c=ONMN1BXW8dInl0EmOKVXzF1_mNMPmNhhO53Zuq8YkuU=" },
+                
+                // Breads & Rice
+                { name: "Butter Naan", price: 50, category: "Breads", desc: "Soft flatbread cooked in a tandoor with butter.", image: "https://media.istockphoto.com/id/1140752821/photo/indian-naan-bread-with-garlic-butter-on-wooden-table.jpg?s=612x612&w=0&k=20&c=lTtokg-1e2OxzzPDHhtwWLR_43TCRBTcmpJU08OL6nQ=" },
+                { name: "Garlic Naan", price: 60, category: "Breads", desc: "Tandoori flatbread topped with minced garlic.", image: "https://media.istockphoto.com/id/1150376593/photo/bread-tandoori-indian-cuisine.jpg?s=612x612&w=0&k=20&c=GGT5LN7G4zLhJTEnP_KcyvYuayi8f1nJcvQwvmj0rCM=" },
+                { name: "Tandoori Roti", price: 30, category: "Breads", desc: "Whole wheat bread baked in a clay oven.", image: "https://media.istockphoto.com/id/2144783737/photo/tandoori-rotis.jpg?s=612x612&w=0&k=20&c=m1U_JSlfHi5hNay-rq8gPL69XKJUB7ljtUDigh4Sy5c=" },
+                { name: "Jeera Rice", price: 120, category: "Rice", desc: "Basmati rice tempered with cumin seeds.", image: "https://media.istockphoto.com/id/2255655306/photo/jeera-rice-served-in-metal-platter-mathura.jpg?s=612x612&w=0&k=20&c=qNVag1S2ORaeCTnZHztPezBBdXkJxqcRUvLjr5su3uY=" },
+                { name: "Veg Biryani", price: 220, category: "Rice", desc: "Aromatic basmati rice cooked with vegetables and spices.", image: "https://media.istockphoto.com/id/1067967232/photo/veg-biryani-or-veg-pulav-or-steamed-rice-close-up.jpg?s=612x612&w=0&k=20&c=dp8SXQM7-uFFk6qgZZgVzDh2znH6qg5A5BGDbMp5sXw=" },
+                
+                // Desserts & Drinks
+                { name: "Gulab Jamun", price: 70, category: "Dessert", desc: "Deep-fried milk dumplings in sugar syrup.", image: "https://media.istockphoto.com/id/163064596/photo/gulab-jamun.jpg?s=612x612&w=0&k=20&c=JvJ4AAs-N5pRzzRmVg1lG0talC3QoUt0ZGiO1NKz-kQ=" },
+                { name: "Rasmalai", price: 90, category: "Dessert", desc: "Soft cottage cheese discs in sweetened milk.", image: "https://media.istockphoto.com/id/884011250/photo/ras-malai-is-an-indian-dessert.jpg?s=612x612&w=0&k=20&c=hdl3cneTodgvAyK7VBe-SW8CYtRtCznq08F5H56WYmA=" },
+                { name: "Mango Lassi", price: 80, category: "Beverage", desc: "Sweet and creamy yogurt drink flavored with mango.", image: "https://media.istockphoto.com/id/2202406591/photo/mango-lassi-indian-food-with-yellow-napkin.jpg?s=612x612&w=0&k=20&c=lDWoza90jcKwAbM6mwOYPfXyjQUIawWMgb1A8eS_5Gg=" }
+            ];
+
+            // 2. Open the LocalStorage Backpack
+            let cart = JSON.parse(localStorage.getItem('annapurnaCart')) || [];
+            const cartBadge = document.getElementById('cart-count');
+
+            // 3. Main function to draw all 20 cards on the screen
+            function renderMenu() {
+                const container = document.getElementById('menu-container');
+                container.innerHTML = ''; // Clear it out first
+
+                menuItems.forEach((item, index) => {
+                    // Check if this food is already sitting in the cart
+                    const cartItem = cart.find(c => c.name === item.name);
+                    const qty = cartItem ? cartItem.qty : 0;
+
+                    // Decide which button to show!
+                    let buttonHTML = '';
+                    if (qty === 0) {
+                        buttonHTML = `<button class="btn btn-outline-danger w-100 fw-bold" onclick="addToCart(${index})">Add to Order</button>`;
+                    } else {
+                        buttonHTML = `
+                            <div class="d-flex justify-content-between align-items-center bg-white border border-danger rounded p-1">
+                                <button class="btn btn-sm btn-danger px-3 fw-bold" onclick="decreaseQty(${index})">-</button>
+                                <span class="fw-bold px-2">${qty}</span>
+                                <button class="btn btn-sm btn-danger px-3 fw-bold" onclick="increaseQty(${index})">+</button>
+                            </div>
+                        `;
+                    }
+
+                    // Build the actual HTML card
+                    const cardHTML = `
+                        <div class="col-md-6 col-lg-3">
+                            <div class="card h-100 shadow-sm border-0">
+                                <img src="${item.image}" class="card-img-top" style="height: 200px; object-fit: cover;" alt="${item.name}">
+                                <div class="card-body d-flex flex-column">
+                                    <span class="badge bg-warning text-dark mb-2 align-self-start">${item.category}</span>
+                                    <h5 class="card-title fw-bold">${item.name}</h5>
+                                    <p class="card-text text-muted small flex-grow-1">${item.desc}</p>
+                                    <h5 class="text-success fw-bold mb-3">₹${item.price}</h5>
+                                    
+                                    <div class="mt-auto">
+                                        ${buttonHTML}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    container.innerHTML += cardHTML;
+                });
+
+                // Always update the red cart badge when we redraw the menu
+                updateCartBadge();
+            }
+
+            // --- CART ACTION FUNCTIONS ---
+
+            function updateCartBadge() {
+                let totalItems = 0;
+                cart.forEach(item => totalItems += item.qty);
+                cartBadge.innerText = totalItems;
+            }
+
+            function saveCart() {
+                localStorage.setItem('annapurnaCart', JSON.stringify(cart));
+                updateCartBadge();
+            }
+
+            // User clicks "Add to Order"
+            function addToCart(index) {
+                let item = menuItems[index];
+                cart.push({ name: item.name, price: item.price, image: item.image, qty: 1 });
+                saveCart();
+                renderMenu(); // Redraw the menu to show the +/- buttons!
+                triggerCartShake();
+            }
+
+            // User clicks "+"
+            function increaseQty(index) {
+                let item = menuItems[index];
+                let cartItem = cart.find(c => c.name === item.name);
+                if(cartItem) {
+                    cartItem.qty++;
+                    saveCart();
+                    renderMenu(); // Redraw to update numbers
+                    triggerCartShake();
+                }
+            }
+
+            // User clicks "-"
+            function decreaseQty(index) {
+                let item = menuItems[index];
+                let cartIndex = cart.findIndex(c => c.name === item.name);
+                
+                if(cartIndex > -1) {
+                    cart[cartIndex].qty--;
+                    if(cart[cartIndex].qty === 0) {
+                        cart.splice(cartIndex, 1); // Remove item completely if it hits 0
+                    }
+                    saveCart();
+                    renderMenu(); // Redraw to bring back the "Add to Order" button
+                }
+            }
+
+            // Shake Animation
+            function triggerCartShake() {
+                const floatingCart = document.getElementById('floating-cart');
+                floatingCart.classList.add('shake-active');
+                setTimeout(() => {
+                    floatingCart.classList.remove('shake-active');
+                }, 300);
+            }
+
+            // Redirect to Cart Page
+            document.getElementById('floating-cart').addEventListener('click', function() {
+                window.location.href = 'addtocard.html';
+            });
+
+            // FINALLY: Run the render function as soon as the page opens
+            renderMenu();
+
+        </script>
+    </body>
+</html>
