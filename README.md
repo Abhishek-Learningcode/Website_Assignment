@@ -20,22 +20,14 @@ A fully responsive, interactive restaurant and food-delivery web application bui
 
 ## 📸 Screenshots
 
-**Home Page**
-<p align="center">
-  <img src="home.png" width="80%" alt="Home Page Screenshot">
-</p>
+### Home Page
+![Home Page Screenshot](home.png)
 
-**Product Menu**
-<p align="center">
-  <img src="product.png" width="80%" alt="Menu Page Screenshot">
-</p>
+### Product Menu
+![Menu Page Screenshot](product.png)
 
-**Food Suggestion Form**
-<p align="center">
-  <img src="foodsuggestion.png" width="80%" alt="Food Suggestion Screenshot">
-</p>
+### Food Suggestion Form
+![Food Suggestion Screenshot](foodsuggestion.png)
 
-**About Us**
-<p align="center">
-  <img src="about.png" width="80%" alt="About Us Screenshot">
-</p>
+### About Us
+![About Us Screenshot](about.png)
